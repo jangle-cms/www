@@ -12,18 +12,126 @@
   <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-  <main class="col gap_xl h-fill center">
-    <div class="col gap_md center">
-      <div class="row gap_md center_x">
-        <img class="title_logo" src="/images/logo.png" width="80" height="80" alt="The Jangle logo">
-        <h1 class="title">Jangle</h1>
+  <!-- Navbar -->
+  <header class="col center_x w_fill pad_lg py_sm sticky top bg_bg borderBottom_sm">
+    <div class="row center_y mw_1200 w_fill gap_fill">
+      <a class="brand pad_sm row gap_sm center" href="/">
+        <img class="brand__img" src="/images/logo.png" alt="Jangle Logo" />
+        <span class="family_header brand__label">Jangle</span>
+      </a>
+      <div class="row gap_md">
+        <button data-action="openWaitlistDialog" target="_blank" rel="noopener" class="button button--small">Join the waitlist</a>
       </div>
-      <h2 class="subtitle">Content's best friend.</h2>
     </div>
-    <div class="pb_xl">
-      <a href="https://github.com/jangle-cms" target="_blank" rel="noopener" class="button">Follow on GitHub</a>
+  </header>
+  <div class="pb_xl"></div>
+  <!-- MAIN CONTENT -->
+  <main class="col center_x w_fill">
+    <!-- HERO -->
+    <div class="col gap_xl py_xxl center">
+      <div class="col gap_md center">
+        <div class="row gap_md center_y">
+          <img class="title_logo" src="/images/logo.png" width="80" height="80" alt="The Jangle logo">
+          <h1 class="title">Jangle</h1>
+        </div>
+        <h2 class="subtitle">Content's best friend.</h2>
+      </div>
+      <div class="pb_xl">
+        <button data-action="openWaitlistDialog" target="_blank" rel="noopener" class="button">Join the waitlist</a>
+      </div>
     </div>
+    <!-- Content should be free -->
+    <div class="wave"></div>
+    <div class="col center pad_lg py_xxl w_fill" style="color: white; background-color: var(--color_primary_1);">
+      <section class="row responsive gap_xl center mw_1200 w_fill">
+        <img class="section__image" src="/images/people_pointing.jpg" width="480" height="360" alt="People pointing at stuff">
+        <div class="col gap_md flex" style="max-width: 480px;">
+          <h3 class="font_h3">Content management should be free</h3>
+          <p class="font_h4">Jangle is designed to be free forever. Whether you're a solo developer, or making a website for a small business, you'll be able to fully manage your content.</p>
+        </div>
+      </section>
+    </div>
+    <!-- Integrations should be easy -->
+    <div class="wave" style="transform: scaleY(-1); margin-top: 0;"></div>
+    <div class="col center pad_lg py_xxl w_fill">
+      <section class="row responsive reverse gap_xl center mw_1200 w_fill">
+        <img class="section__image" src="/images/integrations.jpg" width="480" height="400" alt="Stuff connected together by wires">
+        <div class="col gap_md flex" style="max-width: 480px;">
+          <h3 class="font_h3">Integrations should be easy</h3>
+          <p class="font_h4">Jangle makes it easy to connect to any existing GitHub project. Whether you're using Astro, Next.js, Hugo, or a custom static website, you can start managing content without leaving your browser.</p>
+        </div>
+      </section>
+    </div>
+    <!-- Content should be free -->
+    <div class="wave"></div>
+    <div class="col center pad_lg py_xxl w_fill" style="color: white; background-color: var(--color_primary_1);">
+      <section class="row responsive gap_xl center mw_1200 w_fill">
+        <img class="section__image" src="/images/security.jpg" width="480" height="480" alt="A lock indicating safe and secure data">
+        <div class="col gap_md flex" style="max-width: 480px;">
+          <h3 class="font_h3">Your content belongs in your hands</h3>
+          <p class="font_h4">With Jangle, your content is stored securely in your GitHub repo. Access all the benefits of controlling your data, including the ability to use Jangle alongside existing systems and workflows.</p>
+        </div>
+      </section>
+    </div>
+    <!-- WAITLIST FORM -->
+    <dialog id="waitlistDialog">
+      <form id="waitlistForm" class="col" name="waitlist" method="POST" data-netlify="true">
+        <p class="form__title">Join the waitlist</p>
+        <p class="form__subtitle">Eager to get started with Jangle? You can sign up below for early access.</p>
+        <p>
+          <label>Name <input type="text" required="true" name="name" /></label>
+        </p>
+        <p>
+          <label>Email <input type="email" required="true" name="email" /></label>
+        </p>
+        <p>
+          <label><span>Message <span style="font-weight: normal; color: var(--color_fg_2);">(optional)</span></span><textarea name="message"></textarea></label>
+        </p>
+        <p class="row gap_sm">
+          <button class="button" type="submit">Request an invite</button>
+          <button class="button button--secondary" type="button" data-action="closeWaitlistDialog">Cancel</button>
+        </p>
+      </form>    
+    </dialog>
+    <!-- CONTACT FORM -->
+    <dialog id="contactUsDialog">
+      <form id="contactUsForm" class="col" name="contact" method="POST" data-netlify="true">
+        <p class="form__title">Contact us</p>
+        <p class="form__subtitle">Have any questions or other business inquiries? Please let us know!</p>
+        <p>
+          <label>
+            <span>Name</span>
+            <input type="text" required="true" name="name" />
+          </label>
+        </p>
+        <p>
+          <label>
+            <span>Email</span>
+            <input type="email" required="true" name="email" />
+          </label>
+        </p>
+        <p>
+          <label>
+            <span>Message</span>
+            <textarea required="true" name="message"></textarea>
+          </label>
+        </p>
+        <p class="row gap_sm">
+          <button class="button" type="submit">Send a message</button>
+          <button class="button button--secondary" type="button" data-action="closeContactUsDialog">Cancel</button>
+        </p>
+      </form>    
+    </dialog>
   </main>
-  <footer class="bar"></footer>
+  <footer class="footer row center w_fill">
+    <div class="row gap_fill gap_sm mw_1200 w_fill">
+      <span>© 2023 Ryan Haskell-Glatz</span>
+      <div class="row gap_md">
+        <button class="link" data-action="openContactUsDialog">Contact us</button>
+        <a class="link" href="https://github.com/jangle-cms" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+  <script async src="/main.js"></script>
 </body>
 </html>
